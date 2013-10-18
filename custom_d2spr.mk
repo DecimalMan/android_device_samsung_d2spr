@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
- 
+
 #
 # This file is the build configuration for a full Android
 # build for maguro hardware. This cleanly combines a set of
@@ -29,11 +29,13 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/custom/config/common.mk)
 # Inherit from d2spr device
 $(call inherit-product, device/samsung/d2spr/device.mk)
 
-# FIXME: full_base_telephony.mk clobbers PCF; does this really need to be here?
-PRODUCT_COPY_FILES := vendor/custom/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += \
+	vendor/custom/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf.xml
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := custom_d2spr
