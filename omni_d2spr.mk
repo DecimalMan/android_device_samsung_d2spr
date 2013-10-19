@@ -30,15 +30,15 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/custom/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 # Inherit from d2spr device
 $(call inherit-product, device/samsung/d2spr/device.mk)
 
 PRODUCT_COPY_FILES += \
-	vendor/custom/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf.xml
+	vendor/omni/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf.xml
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := custom_d2spr
+PRODUCT_NAME := omni_d2spr
 PRODUCT_DEVICE := d2spr
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung

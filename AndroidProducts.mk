@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/custom_d2spr.mk
+    $(LOCAL_DIR)/omni_d2spr.mk
