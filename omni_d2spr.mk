@@ -28,13 +28,15 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="d2spr-user 4.1.2 JZO54K L710VPBMD4 release-keys"
 
 # Inherit from those products. Most specific first.
+$(call inherit-product, vendor/omni/config/cdma.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 # Inherit from d2spr device
 $(call inherit-product, device/samsung/d2spr/device.mk)
 
-PRODUCT_COPY_FILES += \
+#$(warning Replacing PCF "$(PRODUCT_COPY_FILES)")
+#PRODUCT_COPY_FILES := \
 	vendor/omni/prebuilt/etc/apns-conf-cdma.xml:system/etc/apns-conf.xml
 
 # Set those variables here to overwrite the inherited values.
